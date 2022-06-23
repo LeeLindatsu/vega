@@ -1,4 +1,4 @@
-Nested Bar Chart 
+## Nested Bar Chart 
 
 "width" & “padding” & “autosize”:
 
