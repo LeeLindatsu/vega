@@ -1,6 +1,11 @@
-## Nested Bar Chart 
+# Vega 圖表學習-Nested Bar Chart 
+[+Grafana 與 Vega 預定學習流程](https://paper.dropbox.com/doc/Grafana-Vega-IGfmlTUqRodWXVl3GLK1O) 
 
-"width" & “padding” & “autosize”:
+
+https://vega.github.io/editor/#/examples/vega/bar-chart
+
+
+**"width" & “padding” & “autosize”:**
 
 ![](https://paper-attachments.dropbox.com/s_F0E7F2DDFB7CA6EC3A7605B500A21615BE0DCCDDE2A46CCD472009039104B869_1655879231898_.PNG)
 !["autosize": "pad"、”none”、”fit”、”fit-x”、”fit-y”](https://paper-attachments.dropbox.com/s_F0E7F2DDFB7CA6EC3A7605B500A21615BE0DCCDDE2A46CCD472009039104B869_1655879337139_+2022-06-22+141811.png)
@@ -17,16 +22,17 @@
       "autosize": "pad",
 
 
-"signals"
+## "signals"
 
 參數可視化 & 交互行為的動態變量
 
 
 - “value” : 一開始圖出現時的初始值設定
-- “bind” : 後面參數可外部調整輸入 => 讓圖表外觀由操作者調整，如列表、拉霸等
+- “bind” : 後面參數可**外部調整輸入** => 讓圖表外觀由操作者調整，如列表、拉霸等
         - “input”:   `checkbox` ,  `radio` ,  `range` ,  `select`  , `button`  , `number`
             
-  網址內有其他元素可使用:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+                        網址內有其他元素可使用:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 
         - “min” : 人為能設的最小值數值(拉霸最左邊)
         - “max” : 人為能設的最大值數值(拉霸最右邊)
@@ -59,11 +65,11 @@
       ],
 
 
-“data”:
+## “data”:
 - “values”:
         - “a”(數字):數值相同時（如：都為0）會分為同一組顏色
         
-        - “b”(英文數字):在此相同顏色的組內，代表的英文字為何
+        - “b”(英文數字):在此**相同顏色**的組內，代表的英文字為何
             (若  “a”的數字  和  “b”的英文字  相同 ＝> “c”的數值會  相加  後  除  以個數)
             
         - “c”(數值): 長條圖的長度
@@ -137,19 +143,19 @@
       ],
 
 
-- “type”:
-        - "formula" ：新值擴展的數字
-            -   “as": “span"：必需。寫入公式值的輸出字。
-            -   "expr" :必需。表達 計算衍生值的公式。
-                - bandspace (count[, paddingInner, paddingOuter])：元素的計數及內部和外部填充值。有助於確定圖表大小。
+- **“type”:**
+        - **"****formula" ：新值擴展的數字**
+            -   “as": “span"：***必需。***寫入公式值的輸出字。
+            -   "expr" :***必需。表達*** 計算衍生值的公式。
+                - **bandspace** (*count*[, *paddingInner*, *paddingOuter*])**：**元素的計數及內部和外部填充值。有助於確定圖表大小。
                         - datum：數據轉換和事件處理程序表達，JavaScript : `datum.value` or `datum['My Value']`
                         
-        - "stack" ： 堆疊、柱
+        - **"stack" ： 堆疊、柱**
             - “field" :  定 stack 高度。
 
 
-        -  "extent" : 轉換計算數字的最小值和最大值
-            -  “field”：必需。要計算範圍的數字。
+        -  **"extent" :** 轉換計算數字的最小值和最大值
+            -  “field”：***必需。***要計算範圍的數字。
             -  “signal”：計算的範圍的數字結合到設定完成名稱的signal
 ![](https://paper-attachments.dropbox.com/s_F0E7F2DDFB7CA6EC3A7605B500A21615BE0DCCDDE2A46CCD472009039104B869_1655950362362_+2022-06-23+10.11.15.png)
 
@@ -180,12 +186,12 @@ https://vega.github.io/editor/#/edited
         { "orient": "bottom", "scale": "xscale", "domain": true }
       ],
     
-“scales”
-    將 數據值（數字、日期、類別等）變成 圖的視覺值（像素、顏色、大小）。
+## “scales”
+    將 數據值（數字、日期、類別*等）變成* 圖的視覺值（像素、顏色、大小）。
     
 - "domain"
-        - “data”：必需。放 包含此數據 的data名。
-        - “field”：必需。數據名稱（例如，`"price"`）
+        - “data”：***必需。***放 包含此數據 的data名。
+        - “field”：***必需。***數據名稱（例如，`"price"`）
         - "nice"(布林)：修改比例的數，只將邊界擴展到最接近的捨入值。(數字四捨五入)
         - "zero"(布林)：將最低數值設為起點，調整其他長條圖
         - "round"(布林)：`false`將數字輸出值四捨五入為整數
@@ -193,10 +199,10 @@ https://vega.github.io/editor/#/edited
 - “type”
         - "ordinal"：離散的域和範圍
         - “category”：類別使用順序比例
-“axes”
+## “axes”
     使用刻度、網格線和標籤可視化空間比例。
-        - “orient” : 必需。axes 的方向
-        - “scale” : 必需。支持axes組件的比例的名稱。
+        - “orient” : ***必需。***axes 的方向
+        - “scale” : ***必需。***支持axes組件的比例的名稱。
         - “domain”：指示是否應將域（axes基線）作為axes的一部分包含在內（默認`true`）
         
     "marks": [
@@ -222,14 +228,14 @@ https://vega.github.io/editor/#/edited
           },
 ![](https://paper-attachments.dropbox.com/s_F0E7F2DDFB7CA6EC3A7605B500A21615BE0DCCDDE2A46CCD472009039104B869_1655968092737_+2022-06-23+3.05.50.png)
 
-"marks"
+## "marks"
     使用幾何圖型（例如矩形、線條和繪圖符號）對數據進行可視化編碼。
-        - "type"：必需。圖形標記類型。
+        - "type"：***必需。***圖形標記類型。
         - "from"：描述此 mark set 應可視化的數據的對象。
                 - "data"：從中提取的 data set 的名稱。
                 - “groupby”：For data-driven facets，數據進行分區的名稱。
         - “encode”：標記屬性的視覺編碼規則。
-            三個主要 property sets: `enter`, `update`, `exit`
+            三個主要 property sets: `*enter*`, `*update*`, `*exit*`
                     `enter` 首次實例化標記項時調用該集合。
                     `update` 只要數據或顯示屬性更新，就會調用該集合。
                     `exit` 當支持標記項的數據值被刪除時調用該集合。
@@ -280,7 +286,7 @@ https://vega.github.io/editor/#/edited
       ]
     }
     
-- "scales":
+- **"scales":**
             - "paddingInner”：內部填充（間距），該值必須在 [0,1]
             - “paddingOuter”：外部填充（間距），該值必須在 [0,1]
 ![](https://paper-attachments.dropbox.com/s_F0E7F2DDFB7CA6EC3A7605B500A21615BE0DCCDDE2A46CCD472009039104B869_1655970710905_+2022-06-23+3.51.45.png)
@@ -296,9 +302,10 @@ https://vega.github.io/editor/#/edited
                     - “fill”:填充顏色(填滿顏色)
                     - “stroke”：填充顏色（只有邊框）
                     
-                    fill 屬性控制填色， stroke 屬性控制邊框
-                    stroke指的是線、文字、及元素外框的"顏色"
+                    *fill* 屬性控制填色， *stroke* 屬性控制邊框
+                    **stroke**指的是**線**、**文字**、及**元素外框**的"**顏色**"
                     - “zindex”：當元素之間重疊，z-index 較大的元素會覆蓋較小的元素在上層進行顯示。默認值為`0`
                     
                     
                     
+
